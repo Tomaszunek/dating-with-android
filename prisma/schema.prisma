@@ -11,8 +11,11 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Example {
+model AndroidUser {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+    name      String
+    lastname  String
+    mainImage String
 }

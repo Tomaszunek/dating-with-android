@@ -6,9 +6,10 @@ import { SignInButton, useUser, SignOutButton } from "@clerk/nextjs";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
+  const { data } = api.androidUserRouter.getAll.useQuery();
   const userAuth = useUser();
+
+  if (!data) return <div>Loading...</div>;
 
   return (
     <>
