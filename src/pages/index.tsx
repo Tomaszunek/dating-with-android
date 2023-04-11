@@ -20,6 +20,11 @@ const Home: NextPage = () => {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div>{!userAuth.isSignedIn ? <SignInButton /> : <SignOutButton />}</div>
+        <div className="flex flex-col items-center justify-center">
+          {data.map((user) => {
+            return <div key={user.name}>{user.name}</div>;
+          })}
+        </div>
       </main>
     </>
   );
