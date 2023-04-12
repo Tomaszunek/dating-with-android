@@ -21,7 +21,9 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
           alt="carousel"
           width={500}
           height={500}
+          className="h-100 w-full object-cover"
         />
+        <p>{images[currentIndex]?.imageDesc ?? ""}</p>
       </div>
       <div className="mt-4 flex justify-center">
         {images.map((image, index) => (

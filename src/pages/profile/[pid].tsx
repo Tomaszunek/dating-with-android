@@ -11,7 +11,6 @@ const Profile = () => {
   if (!data) return <div>loading...</div>;
   return (
     <div className="flex h-screen flex-col items-center justify-center">
-      <h1 className="mb-6 text-3xl font-bold">Image Carousel</h1>
       <ImageCarousel images={data.ProfileImages} />
     </div>
   );
