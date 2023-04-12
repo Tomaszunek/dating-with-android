@@ -17,7 +17,7 @@ export const MainAndroidTail = ({
   userData: { id, mainImage, username, age, city, country, shortDescription },
 }: MainAndroidTailProps) => {
   return (
-    <Link href={`/user/${id}`}>
+    <Link href={`/profile/${id}`}>
       <Image
         src={`/usersImages/${mainImage}`}
         width={400}
