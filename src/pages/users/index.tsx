@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { LoadingScreen } from "~/components/LoadingScreen/LoadingScreen";
 import { UserTailsGrid } from "~/components/UserTiles";
+import { ErrorViewHandler } from "~/errorViewHandler/ErrorViewHandler";
 
 import { api } from "~/utils/api";
 
@@ -9,7 +10,7 @@ const Users: NextPage = () => {
   const { data, error } = api.androidUserRouter.getAll.useQuery();
 
   if (error) {
-    return <div>Error: {JSON.stringify(error.data?.code)}</div>;
+    return <ErrorViewHandler errorMessage={error.message} />;
   }
 
   if (!data) return <LoadingScreen />;
