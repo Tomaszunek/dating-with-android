@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { LoadingScreen } from "~/components/LoadingScreen/LoadingScreen";
 import { ImageCarousel } from "~/components/carousel/ImageCarousel";
 import { api } from "~/utils/api";
 
@@ -23,10 +24,10 @@ const Profile = () => {
   const router = useRouter();
   const { pid } = router.query;
 
-  if (!pid || typeof pid === "object") return <div>loading...</div>;
+  if (!pid || typeof pid === "object") return <LoadingScreen />;
   const { data } = api.androidUserRouter.getUserById.useQuery({ id: pid });
 
-  if (!data) return <div>loading...</div>;
+  if (!data) return <LoadingScreen />;
 
   return (
     <div className="flex h-screen flex-col items-center justify-center">

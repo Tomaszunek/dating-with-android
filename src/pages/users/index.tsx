@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import { LoadingScreen } from "~/components/LoadingScreen/LoadingScreen";
 import { UserTailsGrid } from "~/components/UserTiles";
 
 import { api } from "~/utils/api";
@@ -11,7 +12,7 @@ const Users: NextPage = () => {
     return <div>Error: {JSON.stringify(error.data?.code)}</div>;
   }
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) return <LoadingScreen />;
 
   return (
     <>
