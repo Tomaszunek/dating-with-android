@@ -5,9 +5,14 @@ import { UserTailsGrid } from "~/components/UserTiles";
 import { api } from "~/utils/api";
 
 const Users: NextPage = () => {
-  const { data } = api.androidUserRouter.getAll.useQuery();
+  const { data, error } = api.androidUserRouter.getAll.useQuery();
+
+  if (error) {
+    return <div>Error: {JSON.stringify(error.data?.code)}</div>;
+  }
 
   if (!data) return <div>Loading...</div>;
+
   return (
     <>
       <Head>

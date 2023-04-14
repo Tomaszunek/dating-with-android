@@ -47,6 +47,7 @@ import { TRPCError, initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 import { getAuth } from "@clerk/nextjs/server";
+import { UNAUTHORIZED } from "./errorCodes";
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
@@ -88,7 +89,7 @@ export const publicProcedure = t.procedure;
 const enforceUserAuth = t.middleware(async ({ ctx, next }) => {
   if (!ctx.userId) {
     throw new TRPCError({
-      code: "UNAUTHORIZED",
+      code: UNAUTHORIZED,
     });
   }
 
