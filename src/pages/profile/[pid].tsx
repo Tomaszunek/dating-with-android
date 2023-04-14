@@ -1,8 +1,16 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { ImageCarousel } from "~/components/carousel/ImageCarousel";
+import { useRequiredAuth } from "~/hooks/withRequiredAuth";
 import { api } from "~/utils/api";
 
 const Profile = () => {
+  const { requireToBeAuth } = useRequiredAuth();
+
+  useEffect(() => {
+    requireToBeAuth();
+  }, [requireToBeAuth]);
+
   const router = useRouter();
   const { pid } = router.query;
 
