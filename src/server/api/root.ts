@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 import { androidUserRouter } from "./routers/AndroidUsers";
+import { androidChatAIRouter } from "./routers/Chat";
 
 /**
  * This is the primary router for your server.
@@ -8,6 +9,7 @@ import { androidUserRouter } from "./routers/AndroidUsers";
  */
 export const appRouter = createTRPCRouter({
   androidUserRouter,
+  androidChatAIRouter,
 });
 
 // export type definition of API
