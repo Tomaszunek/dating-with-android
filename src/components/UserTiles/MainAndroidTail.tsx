@@ -20,10 +20,13 @@ export const MainAndroidTail = ({
     <Link href={`/profile/${id}`}>
       <Image
         src={`/usersImages/${mainImage}`}
-        width={400}
-        height={400}
+        width={800}
+        height={800}
         className="rounded-t-3xl"
-        alt="mainImage"
+        alt={mainImage}
+        quality={75}
+        placeholder="blur"
+        blurDataURL={`/usersImages/${mainImage}`}
       />
       <span className="flex justify-center bg-red-400 pb-2 pt-2 text-3xl font-semibold text-white">
         <span>{username}</span>

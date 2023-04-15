@@ -25,6 +25,9 @@ export default {
         beat: "beat 1.2s ease-out infinite",
         "beat-faster": "beat 1s ease-out infinite",
       },
+      padding: {
+        "1/8wv": "12,5%",
+      },
     },
   },
   plugins: [],
