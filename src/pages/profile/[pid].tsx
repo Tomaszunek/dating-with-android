@@ -30,9 +30,11 @@ const Profile = () => {
   if (!data) return <LoadingScreen />;
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center">
-      <ImageCarousel images={data.ProfileImages} imageRoot={data.imageRoot} />
-      <ChatComponent />
+    <div className="flex h-screen flex-col">
+      <div className="grid max-h-fit grid-cols-2 gap-3 p-9">
+        <div></div>
+        <ImageCarousel images={data.ProfileImages} imageRoot={data.imageRoot} />
+      </div>
     </div>
   );
 };
