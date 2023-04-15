@@ -1,12 +1,17 @@
 import type { ProfileImages } from "@prisma/client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { buildImagePath } from "../utils/images";
 
 interface ImageCarouselProps {
   images: ProfileImages[];
+  imageRoot: string;
 }
 
-export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+export const ImageCarousel: React.FC<ImageCarouselProps> = ({
+  images,
+  imageRoot,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleImageClick = (index: number) => {
@@ -17,7 +22,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     <div className="flex flex-col items-center">
       <div>
         <Image
-          src={`/usersImages/${images[currentIndex]?.image ?? ""}`}
+          src={buildImagePath(images[currentIndex]?.image ?? "", imageRoot)}
           alt="carousel"
           width={500}
           height={500}
@@ -29,7 +34,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {images.map((image, index) => (
           <Image
             key={index}
-            src={`/usersImages/${image.image}`}
+            src={buildImagePath(image.image, imageRoot)}
             alt="thumbnail"
             width={100}
             height={100}

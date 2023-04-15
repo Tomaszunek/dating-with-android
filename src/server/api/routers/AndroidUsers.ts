@@ -18,6 +18,7 @@ export const androidUserRouter = createTRPCRouter({
         },
         include: {
           ProfileImages: true,
+          AndroidUserDetails: true,
         },
       });
     }),

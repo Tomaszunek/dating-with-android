@@ -31,7 +31,7 @@ const Profile = () => {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center">
-      <ImageCarousel images={data.ProfileImages} />
+      <ImageCarousel images={data.ProfileImages} imageRoot={data.imageRoot} />
       <ChatComponent />
     </div>
   );

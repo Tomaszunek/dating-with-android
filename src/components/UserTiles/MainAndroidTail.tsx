@@ -1,6 +1,7 @@
 import type { AndroidUser } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+import { buildImagePath } from "../utils/images";
 
 type MainAndroidTailProps = {
   userData: AndroidUser;
@@ -14,19 +15,29 @@ const SingleUserInfo = ({ label, text }: { label: string; text: string }) => (
 );
 
 export const MainAndroidTail = ({
-  userData: { id, mainImage, username, age, city, country, shortDescription },
+  userData: {
+    id,
+    mainImage,
+    username,
+    age,
+    city,
+    country,
+    shortDescription,
+    imageRoot,
+  },
 }: MainAndroidTailProps) => {
+  const imagePath = buildImagePath(mainImage, imageRoot);
   return (
     <Link href={`/profile/${id}`}>
       <Image
-        src={`/usersImages/${mainImage}`}
+        src={imagePath}
         width={800}
         height={800}
         className="rounded-t-3xl"
         alt={mainImage}
         quality={75}
         placeholder="blur"
-        blurDataURL={`/usersImages/${mainImage}`}
+        blurDataURL={imagePath}
       />
       <span className="flex justify-center bg-red-400 pb-2 pt-2 text-3xl font-semibold text-white">
         <span>{username}</span>
